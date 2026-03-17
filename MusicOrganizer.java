@@ -1,12 +1,8 @@
 import java.util.ArrayList;
 
-/**
- * A class to hold details of audio tracks.
- * Individual tracks may be played.
- * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
- */
+import java.util.ArrayList;
+import java.util.Random;
+
 public class MusicOrganizer
 {
     // An ArrayList for storing music tracks.
@@ -126,6 +122,15 @@ public class MusicOrganizer
             player.startPlaying(tracks.get(0).getFilename());
         }
     }
+    
+    public void playRandomTrack()
+{
+    if(tracks.size() > 0) {
+        Random random = new Random();
+        int index = random.nextInt(tracks.size());
+        playTrack(index);
+    }
+}
     
     /**
      * Stop the player.
