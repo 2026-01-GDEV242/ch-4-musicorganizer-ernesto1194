@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections;
 
 public class MusicOrganizer
 {
@@ -129,7 +130,19 @@ public class MusicOrganizer
         playTrack(index);
     }
 }
-    
+ 
+public void shufflePlay()
+{
+    if(tracks.size() > 0) {
+        Collections.shuffle(tracks);
+
+        for(Track track : tracks) {
+            player.startPlaying(track.getFilename());
+            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+        }
+    }
+}
+   
     /**
      * Stop the player.
      */
